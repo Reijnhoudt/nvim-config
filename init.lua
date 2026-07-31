@@ -1,0 +1,5 @@
+require("config.core")
+require("config.plugins")
+require("config.ftypes")
+require("config.lsp")
+require("config.ui")
