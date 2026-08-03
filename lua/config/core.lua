@@ -20,6 +20,7 @@ vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 
 -- File Explorer Style
 vim.g.netrw_liststyle = 3
+vim.g.netrw_altfile = 0 -- Lets ctrl-^ ignore netrw when jumping between files
 
 -- ============================================================================
 -- Mappings
@@ -41,4 +42,4 @@ vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Show diagn
 vim.keymap.set('i', '<C-Space>', '<C-x><C-o>', { desc = "Omnicomplete" })
 
 -- Open file explorer
-vim.keymap.set('n', '<S-e>', '<Cmd>Explore<CR>', { desc = 'Open file explorer (netrw)' })
+vim.keymap.set('n', '<S-e>', '<Cmd>Lexplore<CR>', { desc = 'Open file explorer (netrw)' })
