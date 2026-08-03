@@ -5,3 +5,4 @@ vim.pack.add({
 
 require("config.treesitter")
 require("config.mini-pairs")
+require("config.tmux-navigator")
