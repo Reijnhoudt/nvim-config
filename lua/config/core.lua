@@ -43,3 +43,13 @@ vim.keymap.set('i', '<C-Space>', '<C-x><C-o>', { desc = "Omnicomplete" })
 
 -- Open file explorer
 vim.keymap.set('n', '<S-e>', '<Cmd>Explore<CR>', { desc = 'Toggle file explorer' })
+
+
+-- ============================================================================
+-- Custom Commands
+-- ============================================================================
+-- Diff current buffer against the original file on disk
+vim.api.nvim_create_user_command("DiffOrig", function()
+  vim.cmd("vert new | set buftype=nofile | read ++edit # | 0d_ | diffthis | wincmd p | diffthis")
+end, {})
+
