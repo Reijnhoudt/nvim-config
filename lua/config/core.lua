@@ -44,6 +44,28 @@ vim.keymap.set('i', '<C-Space>', '<C-x><C-o>', { desc = "Omnicomplete" })
 -- Open file explorer
 vim.keymap.set('n', '<S-e>', '<Cmd>Explore<CR>', { desc = 'Toggle file explorer' })
 
+-- Surround selection in brackets when pressing ([{<"' in visual mode
+local function surround_visual(open, close)
+  vim.keymap.set("x", open, function()
+    -- Do nothing in Visual Line mode
+    if vim.fn.mode() == "V" then
+      return "<Ignore>"
+    end
+
+    return "c" .. open .. close .. "<Esc>P"
+  end, {
+    expr = true,
+    noremap = true,
+    silent = true,
+  })
+end
+
+surround_visual("(", ")")
+surround_visual("[", "]")
+surround_visual("{", "}")
+surround_visual("<", ">")
+surround_visual('"', '"')
+surround_visual("'", "'")
 
 -- ============================================================================
 -- Custom Commands
